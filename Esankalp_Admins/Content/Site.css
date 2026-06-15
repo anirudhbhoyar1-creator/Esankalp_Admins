@@ -1,0 +1,370 @@
+﻿/* ==========================================
+   eSankalp Login Page
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #02112f;
+}
+
+/* Remove MVC default restrictions */
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.login-wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+/* ==========================================
+   LEFT SIDE
+========================================== */
+
+.login-left {
+    width: 55%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at 15% 20%, #149dff 0%, transparent 30%),
+        radial-gradient(circle at 85% 80%, #ff9f0a 0%, transparent 35%),
+        linear-gradient(135deg, #00143d, #02255d, #00122f);
+}
+
+/* floating particles */
+
+.login-left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(#19a8ff 2px, transparent 2px),
+        radial-gradient(#ffb300 2px, transparent 2px);
+    background-size: 120px 120px;
+    opacity: .35;
+}
+
+/* ==========================================
+   GLOWING RING
+========================================== */
+
+.glow-ring {
+    position: absolute;
+    width: 850px;
+    height: 850px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #14a9ff,
+        #46c7ff,
+        #ffcf4a,
+        #ff9300,
+        #14a9ff
+    );
+    filter: blur(4px);
+    animation: rotateRing 20s linear infinite;
+}
+
+.glow-ring::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #00184a,
+        #001230
+    );
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================
+   OVAL GLASS
+========================================== */
+
+.oval-glass {
+    position: relative;
+    z-index: 10;
+    width: 700px;
+    height: 430px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,.16);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,.25);
+    box-shadow:
+        inset 0 0 35px rgba(255,255,255,.15),
+        0 0 60px rgba(255,255,255,.12);
+    text-align: center;
+}
+
+.brand-logo {
+    width: 320px;
+    max-width: 90%;
+    object-fit: contain;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,.25));
+}
+
+.oval-glass h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.oval-glass p {
+    color: #385792;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   RIGHT SIDE
+========================================== */
+
+.login-right {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        135deg,
+        #00143d,
+        #001a49,
+        #001028
+    );
+}
+
+/* ==========================================
+   LOGIN CARD
+========================================== */
+
+.login-card {
+    width: 520px;
+    padding: 40px;
+    border-radius: 30px;
+    background: rgba(9,22,60,.88);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 0 40px rgba(0,0,0,.45);
+}
+
+.login-card h2 {
+    color: white;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-card .sub {
+    color: #9ab0d0;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.form-control {
+    width: 100%;
+    height: 58px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #1a2c58;
+    color: white;
+    font-size: 18px;
+}
+
+.form-control::placeholder {
+    color: #8ea3c5;
+}
+
+.form-control:focus {
+    background: #1a2c58;
+    color: white;
+    border-color: #2b90ff;
+    box-shadow: none;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.btn-primary-grad {
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    padding: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(
+        90deg,
+        #18a7ff,
+        #ffae00
+    );
+    transition: .3s;
+}
+
+.btn-primary-grad:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255,174,0,.5);
+}
+
+/* ==========================================
+   BRAND SECTION
+========================================== */
+
+.login-card img {
+    border-radius: 50%;
+}
+
+.login-card .d-flex div:first-child {
+    color: white;
+}
+
+/* ==========================================
+   COPYRIGHT
+========================================== */
+
+.text-center {
+    color: #8ea3c5 !important;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+
+    .oval-glass {
+        width: 550px;
+        height: 350px;
+    }
+
+    .brand-logo {
+        width: 250px;
+    }
+
+    .oval-glass h1 {
+        font-size: 38px;
+    }
+
+    .login-card {
+        width: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .login-wrap {
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        width: 100%;
+    }
+
+    .login-left {
+        height: 45vh;
+    }
+
+    .login-right {
+        height: 55vh;
+        padding: 20px;
+    }
+
+    .oval-glass {
+        width: 450px;
+        height: 280px;
+    }
+
+    .brand-logo {
+        width: 200px;
+    }
+
+    .oval-glass h1 {
+        font-size: 30px;
+    }
+
+    .oval-glass p {
+        font-size: 18px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .login-card h2 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .oval-glass {
+        width: 320px;
+        height: 220px;
+    }
+
+    .brand-logo {
+        width: 150px;
+    }
+
+    .oval-glass h1 {
+        font-size: 22px;
+    }
+
+    .oval-glass p {
+        font-size: 14px;
+    }
+
+    .login-card {
+        padding: 25px;
+    }
+
+    .login-card h2 {
+        font-size: 34px;
+    }
+}

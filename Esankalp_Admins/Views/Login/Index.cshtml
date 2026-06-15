@@ -1,0 +1,81 @@
+﻿@using Esankalp_Admins.Models;
+@model LoginModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eSankalp Enterprise Portal — Admin Login</title>
+
+
+    <link rel="stylesheet" href="~/Content/assets/css/style1.css" />
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @if (@ViewBag.Message != null)
+    {
+        <div class="form-group">
+            @ViewBag.Message
+        </div>}
+        <main class="layout">
+            <!-- LEFT: Hero -->
+            <section class="hero" aria-label="eSankalp branding">
+                <div class="hero__bg" aria-hidden="true"></div>
+                <div class="hero__particles" aria-hidden="true"></div>
+                <div class="hero__glow hero__glow--blue" aria-hidden="true"></div>
+                <div class="hero__glow hero__glow--orange" aria-hidden="true"></div>
+                <div class="hero__ring" aria-hidden="true">
+                    <img src="~/Content/assets/images/glow-ring.png" alt="" />
+                </div>
+
+                <div class="hero__panel">
+                    <img class="hero__logo" src="~/Content/assets/images/hero-logo.png" alt="eSankalp logo" />
+                    <h1 class="hero__title">eSankalp Enterprise Portal</h1>
+                    <p class="hero__subtitle">Thinking Beyond Your Imagination</p>
+                </div>
+            </section>
+
+            <!-- RIGHT: Login -->
+            <section class="login" aria-label="Admin login">
+                <article class="card">
+                    <header class="card__head">
+                        <img class="card__logo" src="~/Content/assets/images/logo.png" alt="eSankalp" />
+                        <div class="card__brand">
+                            <span class="card__brandName">eSankalp</span>
+                            <span class="card__brandRole">Admin Login</span>
+                        </div>
+                    </header>
+
+                    <h2 class="card__title">Welcome back</h2>
+                    <p class="card__subtitle">Enter your details to access the admin dashboard.</p>
+                    @using (Html.BeginForm("LoginIN", "Login", FormMethod.Post))
+                    {
+
+                        <div class="field">
+                            @Html.LabelFor(a => a.UserName)
+                            @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+                        </div>
+
+                        @Html.ValidationMessageFor(a => a.UserName)
+                <div class="field">
+                    @Html.LabelFor(a => a.Password)
+                    @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
+                </div>
+
+                        <input type="submit" value="Login" class="btn btn-info" />
+                    }
+
+                    <footer class="card__foot">
+                        © 2025 eSankalp Enterprise · All rights reserved
+                    </footer>
+                    </article>
+            </section>
+        </main>
+    </body>
+</html>

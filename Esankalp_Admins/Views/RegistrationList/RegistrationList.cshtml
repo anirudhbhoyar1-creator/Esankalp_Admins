@@ -1,0 +1,441 @@
+﻿
+@{
+    ViewBag.Title = "RegistrationList";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registration List · eSankalp Enterprise Portal</title>
+    <link rel="icon" href="~/Content/assets/images/esankalp1-logo.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <link rel="stylesheet" href="~/Content/assets/css/dashboard.css">
+    <link rel="stylesheet" href="~/Content/assets/css/responsive.css">
+
+</head>
+<body>
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+    <div class="app">
+        <aside class="sidebar scroll-soft">
+            <div class="brand">
+                <img src="~/Content/assets/images/logo.png" alt="eSankalp">
+                <div>
+                    <div class="name">eSankalp</div>
+                    <div class="tag">Enterprise Portal</div>
+                </div>
+            </div>
+            <div class="section-label">Main</div>
+            <a class="nav-link-es" href="@Url.Action("Index", "Dashboard")"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+            <div class="section-label">Manage</div>
+            <a class="nav-link-es" href="@Url.Action("Index", "RegistrationList")"><i class="bi bi-people-fill"></i><span>Registration List</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "ApplicationForm")"><i class="bi bi-pencil-square"></i><span>Application Form</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "ApplicationList")"><i class="bi bi-list-check"></i><span>Application List</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "ClientAdd")"><i class="bi bi-person-plus-fill"></i><span>Client Add</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "ClientList")"><i class="bi bi-briefcase-fill"></i><span>Client List</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "ContactList")"><i class="bi bi-envelope-fill"></i><span>Contact List</span></a>
+            <div class="section-label">Finance</div>
+            <a class="nav-link-es" href="@Url.Action("Index", "Income")"><i class="bi bi-graph-up-arrow"></i><span>Income</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "Expenses")"><i class="bi bi-graph-down-arrow"></i><span>Expenses</span></a>
+            <div class="section-label">Content</div>
+            <a class="nav-link-es" href="@Url.Action("Index", "AddProduct")"><i class="bi bi-box-seam"></i><span>Add Product</span></a>
+            <a class="nav-link-es" href="@Url.Action("Index", "Portfolio")"><i class="bi bi-images"></i><span>Add Portfolio</span></a>
+            <a class="nav-link-es active" href="@Url.Action("Index", "JobApplication")"><i class="bi bi-person-badge"></i><span>Job Application</span></a>
+            <div class="mt-auto pt-3">
+                <a href="@Url.Action("Logout","Account")"
+                   class="btn btn-outline-soft w-100">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </a>
+            </div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="left">
+                    <button id="sidebarToggle" class="icon-btn d-lg-none"><i class="bi bi-list"></i></button>
+                    <div>
+                        <div class="page-title">Registration List</div>
+                        <div class="page-sub">Thinking Beyond Your Imagination</div>
+                    </div>
+                </div>
+                <div class="d-none d-md-flex search hide-mobile">
+                    <i class="bi bi-search text-muted"></i>
+                    <input type="text" placeholder="Search anything...">
+                </div>
+                <div class="right">
+                    <button class="icon-btn" title="Notifications"><i class="bi bi-bell"></i></button>
+                    <button class="icon-btn" title="Settings"><i class="bi bi-gear"></i></button>
+                    <div class="avatar" title="Profile"><span id="userName">A</span></div>
+                </div>
+            </header>
+            <section class="content">
+
+
+                <div class="card-es">
+                    <div class="toolbar">
+                        <div class="filters">
+                            <div class="search d-flex align-items-center" style="background:rgba(255,255,255,.05);border:1px solid var(--es-border);border-radius:10px;padding:6px 10px;min-width:240px">
+                                <i class="bi bi-search me-2 text-muted"></i>
+                                <input type="text" class="form-control form-control-sm border-0 bg-transparent text-light p-0" placeholder="Search..." data-search>
+                            </div>
+                            <select class='form-select form-select-sm' data-filter='7' style='min-width:140px'><option value=''>All</option><option value='Approved'>Approved</option><option value='Pending'>Pending</option><option value='Verified'>Verified</option><option value='Rejected'>Rejected</option></select>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-soft btn-sm" data-export="pdf"><i class="bi bi-file-earmark-pdf me-1"></i> PDF</button>
+                            <button class="btn btn-outline-soft btn-sm" data-export="csv"><i class="bi bi-file-earmark-excel me-1"></i> Excel</button>
+                            <button class="btn btn-primary-grad btn-sm px-3" data-bs-toggle="modal" data-bs-target="#addModal"><i class="bi bi-plus-lg me-1"></i> Add New</button>
+                        </div>
+                    </div>
+                    <div class="table-wrap scroll-soft">
+                        <table class="table-es" data-table data-page-size="6">
+                            <thead><tr><th>RegId</th><th>Name</th><th>MobileNo</th><th>Email</th><th>Education</th><th>Percentage</th><th>Service</th><th>Technology</th><th>Office</th><th>College</th><th>Address</th><th width="180" class="text-end">Actions</th></tr></thead>
+                            <tbody id="registrationBody">
+                            
+                                <tr>
+                                    <td>REG001</td>
+                                    <td>Anirudh Bhoyar</td>
+                                    <td>9876543210</td>
+                                    <td>anirudh@gmail.com</td>
+                                    <td>B.E.</td>
+                                    <td>80%</td>
+                                    <td>Internship</td>
+                                    <td>.NET</td>
+                                    <td>Nagpur</td>
+                                    <td>ABC College</td>
+                                    <td>Nagpur</td>
+
+                                    <td class="text-end">
+                                        <div class="btn-action-group">
+                                            <div class="d-flex justify-content-end gap-2">
+
+                                                <button class="btn-icon btn-view" title="View">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+
+                                                <button class="btn-icon btn-edit" title="Edit">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+
+                                                <button class="btn-icon btn-whatsapp" title="WhatsApp">
+                                                    <i class="bi bi-whatsapp"></i>
+                                                </button>
+
+                                                <button class="btn-icon danger btn-delete" title="Delete">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+
+                                            </div>
+                                        </div>
+
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination-es" data-pagination></div>
+                </div>
+
+                <div class="modal fade" id="addModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content modal-dark">
+
+                            <div class="modal-header">
+                                <h5>Add Registration</h5>
+
+                                <button class="btn-close btn-close-white"
+                                        data-bs-dismiss="modal">
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <input class="form-control mb-2"
+                                       placeholder="Name">
+
+                                <input class="form-control mb-2"
+                                       placeholder="Mobile">
+
+                                <input class="form-control mb-2"
+                                       placeholder="Email">
+
+                                <input class="form-control mb-2"
+                                       placeholder="Course">
+
+                                <input class="form-control mb-2"
+                                       placeholder="College">
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button class="btn btn-outline-light"
+                                        data-bs-dismiss="modal">
+                                    Close
+                                </button>
+
+                                <button class="btn btn-success">
+                                    Save
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <div class="modal fade" id="viewModal">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content modal-dark">
+
+                <div class="modal-header">
+                    <h5>Registration Details</h5>
+
+                    <button class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body"
+                     id="viewContent">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal fade" id="editModal">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content modal-dark">
+
+                <div class="modal-header">
+                    <h5>Edit Registration</h5>
+
+                    <button class="btn-close btn-close-white"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input id="editName"
+                           class="form-control mb-2">
+
+                    <input id="editMobile"
+                           class="form-control mb-2">
+
+                    <input id="editEmail"
+                           class="form-control mb-2">
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button class="btn btn-success"
+                            id="saveEditBtn">
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/js/app.js"></script>
+    <script src="~/Content/assets/js/table.js"></script>
+    <script src="~/Content/assets/js/table.js"></script>
+    <script>
+
+        let currentRow = null;
+
+        document.addEventListener('click', function (e) {
+
+            // VIEW
+
+            if (e.target.closest('.view-btn')) {
+
+                let tr =
+                    e.target.closest('tr');
+
+                let cells =
+                    tr.querySelectorAll('td');
+
+                document.getElementById('viewContent').innerHTML =
+
+                    `
+<div class="detail-row">
+<strong>Name :</strong>
+${cells[1].innerText}
+</div>
+
+<div class="detail-row">
+<strong>Mobile :</strong>
+${cells[2].innerText}
+</div>
+
+<div class="detail-row">
+<strong>Email :</strong>
+${cells[3].innerText}
+</div>
+
+<div class="detail-row">
+<strong>Course :</strong>
+${cells[4].innerText}
+</div>
+
+<div class="detail-row">
+<strong>College :</strong>
+${cells[5].innerText}
+</div>
+
+<div class="detail-row">
+<strong>Date :</strong>
+${cells[6].innerText}
+</div>
+
+`;
+
+                new bootstrap.Modal(
+                    document.getElementById('viewModal')
+                ).show();
+
+            }
+
+            // EDIT
+
+            if (e.target.closest('.edit-btn')) {
+
+                currentRow =
+                    e.target.closest('tr');
+
+                let cells =
+                    currentRow.querySelectorAll('td');
+
+                document.getElementById('editName').value =
+                    cells[1].innerText;
+
+                document.getElementById('editMobile').value =
+                    cells[2].innerText;
+
+                document.getElementById('editEmail').value =
+                    cells[3].innerText;
+
+                new bootstrap.Modal(
+                    document.getElementById('editModal')
+                ).show();
+
+            }
+
+            // DELETE
+
+            if (e.target.closest('.delete-btn')) {
+
+                if (confirm('Delete this registration?')) {
+
+                    e.target.closest('tr').remove();
+
+                    showToast('Registration deleted');
+
+                }
+
+            }
+
+            // WHATSAPP
+
+            if (e.target.closest('.whatsapp-btn')) {
+
+                let tr =
+                    e.target.closest('tr');
+
+                let name =
+                    tr.children[1].innerText;
+
+                let mobile =
+                    tr.children[2].innerText
+                        .replace('+91', '')
+                        .replace(/\s/g, '');
+
+                let msg =
+                    `Hello ${name},
+
+You have been successfully registered with eSankalp.
+
+Thank You.`;
+
+                window.open(
+
+                    `https://wa.me/91${mobile}?text=${encodeURIComponent(msg)}`,
+
+                    '_blank'
+
+                );
+
+            }
+
+        });
+
+        // SAVE EDIT
+
+        document
+            .getElementById('saveEditBtn')
+            .addEventListener('click', function () {
+
+                if (!currentRow)
+                    return;
+
+                let cells =
+                    currentRow.querySelectorAll('td');
+
+                cells[1].innerText =
+                    document.getElementById('editName').value;
+
+                cells[2].innerText =
+                    document.getElementById('editMobile').value;
+
+                cells[3].innerText =
+                    document.getElementById('editEmail').value;
+
+                bootstrap.Modal
+                    .getInstance(
+                        document.getElementById('editModal')
+                    )
+                    .hide();
+
+                showToast(
+                    'Registration updated'
+                );
+
+            });
+    </script>
+        <script src="~/Scripts/jquery-3.7.0.min.js"></script>
+    <script src="~/Scripts/Registration.js"></script>
+
+   
+</body>
+</html>
+
+
+
+

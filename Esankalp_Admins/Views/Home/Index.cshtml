@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eSankalp Enterprise Portal — Admin Login</title>
+    
+
+    <link rel="stylesheet" href="~/Content/assets/css/style1.css" />
+</head>
+<body>
+    <main class="layout">
+        <!-- LEFT: Hero -->
+        <section class="hero" aria-label="eSankalp branding">
+            <div class="hero__bg" aria-hidden="true"></div>
+            <div class="hero__particles" aria-hidden="true"></div>
+            <div class="hero__glow hero__glow--blue" aria-hidden="true"></div>
+            <div class="hero__glow hero__glow--orange" aria-hidden="true"></div>
+            <div class="hero__ring" aria-hidden="true">
+                <img src="~/Content/assets/images/glow-ring.png" alt="" />
+            </div>
+
+            <div class="hero__panel">
+                <img class="hero__logo" src="~/Content/assets/images/hero-logo.png" alt="eSankalp logo" />
+                <h1 class="hero__title">eSankalp Enterprise Portal</h1>
+                <p class="hero__subtitle">Thinking Beyond Your Imagination</p>
+            </div>
+        </section>
+
+        <!-- RIGHT: Login -->
+        <section class="login" aria-label="Admin login">
+            <article class="card">
+                <header class="card__head">
+                    <img class="card__logo" src="~/Content/assets/images/logo.png" alt="eSankalp" />
+                    <div class="card__brand">
+                        <span class="card__brandName">eSankalp</span>
+                        <span class="card__brandRole">Admin Login</span>
+                    </div>
+                </header>
+
+                <h2 class="card__title">Welcome back</h2>
+                <p class="card__subtitle">Enter your details to access the admin dashboard.</p>
+
+                <form class="form" action="@Url.Action("Login","Account")" method="post" autocomplete="off">
+                    <div class="field">
+                        <label for="name">Full Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your full name" />
+                    </div>
+
+                    <div class="field">
+                        <label for="mobile">Mobile Number</label>
+                        <input id="mobile" name="mobile" type="tel" placeholder="+91 98xxxxxxxx" />
+                    </div>
+
+                    <button type="submit" class="btn">
+                        <span>Enter Dashboard</span>
+                        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                            <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+
+                <footer class="card__foot">
+                    © 2025 eSankalp Enterprise · All rights reserved
+                </footer>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

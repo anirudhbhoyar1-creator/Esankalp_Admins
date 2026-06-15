@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="esankal1_esankalpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApplicationMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Position" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="Skills" Type="varchar" MaxLength="500" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Education" Type="varchar" MaxLength="200" />
+          <Property Name="Experience" Type="varchar" MaxLength="100" />
+          <Property Name="CandidatePhoto" Type="varchar" MaxLength="500" />
+          <Property Name="ResumeFile" Type="varchar" MaxLength="500" />
+          <Property Name="AppliedDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ClientMaster">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="150" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="ProjectDetails" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mob" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="msg" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IncomeMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="100" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IncomeDate" Type="datetime" />
+          <Property Name="Category" Type="varchar" MaxLength="100" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="JobApplicationMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidateName" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="PositionAppliedFor" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="InterviewDate" Type="datetime" />
+          <Property Name="ResumePath" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PortfolioMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="200" />
+          <Property Name="ClientName" Type="varchar" MaxLength="200" />
+          <Property Name="Category" Type="varchar" MaxLength="100" />
+          <Property Name="Technologies" Type="varchar" MaxLength="500" />
+          <Property Name="ProjectUrl" Type="varchar" MaxLength="500" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="500" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="IsFeatured" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="Category" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="RegId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Education" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Percentage" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Service" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Technology" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Office" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="College" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="esankal1_esankalpModelStoreContainer">
+          <EntitySet Name="ApplicationMaster" EntityType="Self.ApplicationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientMaster" EntityType="Self.ClientMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomeMaster" EntityType="Self.IncomeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobApplicationMaster" EntityType="Self.JobApplicationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PortfolioMaster" EntityType="Self.PortfolioMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="esankal1_esankalpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="RegId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Percentage" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Technology" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Office" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="College" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="esankal1_esankalpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Registrations" EntityType="Self.Registration" />
+          <EntitySet Name="ApplicationMasters" EntityType="esankal1_esankalpModel.ApplicationMaster" />
+          <EntitySet Name="ClientMasters" EntityType="esankal1_esankalpModel.ClientMaster" />
+          <EntitySet Name="contacts" EntityType="esankal1_esankalpModel.contact" />
+          <EntitySet Name="ProductMasters" EntityType="esankal1_esankalpModel.ProductMaster" />
+          <EntitySet Name="JobApplicationMasters" EntityType="esankal1_esankalpModel.JobApplicationMaster" />
+          <EntitySet Name="IncomeMasters" EntityType="esankal1_esankalpModel.IncomeMaster" />
+          <EntitySet Name="PortfolioMasters" EntityType="esankal1_esankalpModel.PortfolioMaster" />
+        </EntityContainer>
+        <EntityType Name="ApplicationMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CandidatePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ResumeFile" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AppliedDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ClientMaster">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDetails" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="JobApplicationMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PositionAppliedFor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InterviewDate" Type="DateTime" Precision="3" />
+          <Property Name="ResumePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="IncomeMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IncomeDate" Type="DateTime" Precision="3" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PortfolioMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ClientName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Technologies" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="IsFeatured" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="esankal1_esankalpModelStoreContainer" CdmEntityContainer="esankal1_esankalpEntities">
+          <EntitySetMapping Name="Registrations">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.Registration">
+              <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Office" ColumnName="Office" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationMasters">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.ApplicationMaster">
+              <MappingFragment StoreEntitySet="ApplicationMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="ResumeFile" ColumnName="ResumeFile" />
+                <ScalarProperty Name="CandidatePhoto" ColumnName="CandidatePhoto" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientMasters">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.ClientMaster">
+              <MappingFragment StoreEntitySet="ClientMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ProjectDetails" ColumnName="ProjectDetails" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="msg" ColumnName="msg" />
+                <ScalarProperty Name="mob" ColumnName="mob" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMasters">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.ProductMaster">
+              <MappingFragment StoreEntitySet="ProductMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobApplicationMasters">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.JobApplicationMaster">
+              <MappingFragment StoreEntitySet="JobApplicationMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ResumePath" ColumnName="ResumePath" />
+                <ScalarProperty Name="InterviewDate" ColumnName="InterviewDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PositionAppliedFor" ColumnName="PositionAppliedFor" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IncomeMasters">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.IncomeMaster">
+              <MappingFragment StoreEntitySet="IncomeMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PortfolioMasters">
+            <EntityTypeMapping TypeName="esankal1_esankalpModel.PortfolioMaster">
+              <MappingFragment StoreEntitySet="PortfolioMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProjectUrl" ColumnName="ProjectUrl" />
+                <ScalarProperty Name="Technologies" ColumnName="Technologies" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

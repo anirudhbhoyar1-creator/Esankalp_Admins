@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fac2eeeb05a74ef38f455162c3d1d68e" Name="Diagram1">
+        <EntityTypeShape EntityType="esankal1_esankalpModel.Registration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.ApplicationMaster" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.ClientMaster" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.contact" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.ProductMaster" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.JobApplicationMaster" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.IncomeMaster" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="esankal1_esankalpModel.PortfolioMaster" Width="1.5" PointX="7.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

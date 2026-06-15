@@ -1,0 +1,12 @@
+/* Responsive helpers */
+@media (max-width: 991px){
+  .topbar{padding:12px 14px}
+  .content{padding:16px}
+  .sidebar-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1040;display:none}
+  .sidebar-backdrop.show{display:block}
+}
+@media (max-width:576px){
+  .login-card{padding:24px 18px}
+  .oval-glass{height:280px}
+  .oval-glass h1{font-size:22px}
+}
