@@ -20,7 +20,7 @@ namespace Esankalp_Admins.Models
         public string College { get; set; }
         public string Address { get; set; }
 
-        public List<RegistrationModel> GetRegistration()
+        public List<RegistrationModel> GetRegistration( string Name)
         {
             esankal1_esankalpEntities db = new esankal1_esankalpEntities();
 
