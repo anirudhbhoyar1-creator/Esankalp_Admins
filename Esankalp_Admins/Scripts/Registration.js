@@ -4,6 +4,9 @@
 
 function GetRegistration() {
 
+    var name = $("#txtNmae").val();
+    var model = { name: Name };
+
     $.ajax({
         url: "/RegistrationList/GetRegistration",
         type: "GET",

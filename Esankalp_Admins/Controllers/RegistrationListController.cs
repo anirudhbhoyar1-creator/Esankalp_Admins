@@ -18,13 +18,13 @@ namespace Esankalp_Admins.Controllers
         {
             return View();
         }
-        public JsonResult GetRegistration()
+        public JsonResult GetRegistration( string Name)
         {
             RegistrationModel rm = new RegistrationModel();
 
             return Json(new
             {
-                data = rm.GetRegistration()
+                data = rm.GetRegistration(Name)
             }, JsonRequestBehavior.AllowGet);
         }
     }

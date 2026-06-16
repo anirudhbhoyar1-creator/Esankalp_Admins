@@ -20,32 +20,33 @@ namespace Esankalp_Admins.Models
         public string College { get; set; }
         public string Address { get; set; }
 
-        public List<RegistrationModel> GetRegistration( string Name)
+        public List<RegistrationModel> GetRegistration(string Name)
         {
             esankal1_esankalpEntities db = new esankal1_esankalpEntities();
 
             List<RegistrationModel> list = new List<RegistrationModel>();
 
-            var data = db.Registrations.ToList();
-
-            foreach (var item in data)
+            var data = db.Registrations.where(p => p.Name == Name).ToList();
+            if (data != null)
             {
-                list.Add(new RegistrationModel()
+                foreach (var item in data)
                 {
-                    RegId = item.RegId,
-                    Name = item.Name,
-                    MobileNo = item.MobileNo,
-                    Email = item.Email,
-                    Education = item.Education,
-                    Percentage = item.Percentage,
-                    Service = item.Service,
-                    Technology = item.Technology,
-                    Office = item.Office,
-                    College = item.College,
-                    Address = item.Address
-                });
+                    list.Add(new RegistrationModel()
+                    {
+                        RegId = item.RegId,
+                        Name = item.Name,
+                        MobileNo = item.MobileNo,
+                        Email = item.Email,
+                        Education = item.Education,
+                        Percentage = item.Percentage,
+                        Service = item.Service,
+                        Technology = item.Technology,
+                        Office = item.Office,
+                        College = item.College,
+                        Address = item.Address
+                    });
+                }
             }
-
             return list;
         }
 
